@@ -448,6 +448,10 @@ footer {
     .bio {
         background-color: var(--bg-color);
     }
+
+    .copy p {
+        max-width: 50%;
+    }
 }
 
 @media screen and (max-width: 600px) {
