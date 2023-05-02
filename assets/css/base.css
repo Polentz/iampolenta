@@ -137,11 +137,13 @@ table {
 }
 
 html {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 :after,
 :before {
+    -webkit-box-sizing: inherit;
     box-sizing: inherit;
 }
 
@@ -164,6 +166,11 @@ input {
 *:visited,
 *:focus {
     color: inherit;
+}
+
+*::-moz-selection {
+    background-color: transparent;
+    color: var(--acc-color);
 }
 
 *::selection {

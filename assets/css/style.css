@@ -1,9 +1,9 @@
 :root {
     --doc-height: 100%;
     --general-margin: 2rem;
-    --bg-color: #E9E3FF;
     --txt-color: #000;
     --acc-color: #4c00ff;
+    --bg-color: #fff;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
     font-family: basic-sans, sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: #000;
+    color: var(--txt-color);
     padding: var(--general-margin);
     overflow-x: hidden;
 }
@@ -20,7 +20,7 @@ body {
 a {
     font-size: .75rem;
     font-weight: 600;
-    color: #4c00ff;
+    color: var(--acc-color);
     text-transform: uppercase;
 }
 
@@ -33,23 +33,50 @@ canvas {
     vertical-align: bottom;
     pointer-events: none;
     z-index: -1;
+    -webkit-filter: blur(5px);
     filter: blur(5px);
 }
 
-@keyframes appear {
+@-webkit-keyframes appear {
     0% {
+        -webkit-transform: translateY(100%);
         transform: translateY(100%);
     }
 
     50% {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
     }
 
     55% {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
     }
 
     100% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes appear {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+
+    50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    55% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(-100%);
         transform: translateY(-100%);
     }
 }
@@ -70,16 +97,16 @@ canvas {
     position: relative;
     display: inline-block;
     animation: 3s ease-in infinite reverse both appear;
-    color: #4c00ff;
+    color: var(--acc-color);
 }
 
-/* .project {
-    width: max-content;
-} */
-
 .project-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 1rem;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
     align-items: baseline;
 }
 
@@ -129,14 +156,14 @@ canvas {
 .project-overview p {
     margin-right: 2px;
     font-weight: 600;
-    color: #4c00ff;
+    color: var(--acc-color);
     cursor: crosshair;
 }
 
 .project-link p {
     margin-right: 2px;
     font-weight: 600;
-    color: #4c00ff;
+    color: var(--acc-color);
 }
 
 .project-overview svg,
@@ -155,6 +182,8 @@ canvas {
     z-index: 9;
     pointer-events: none;
     opacity: 0;
+    -webkit-transition: opacity .5s ease;
+    -o-transition: opacity .5s ease;
     transition: opacity .5s ease;
 }
 
@@ -169,7 +198,7 @@ canvas {
     position: fixed;
     bottom: var(--general-margin);
     right: var(--general-margin);
-    border: solid 1px #4c00ff;
+    border: solid 1px var(--acc-color);
     font-size: .9rem;
 }
 
@@ -283,6 +312,16 @@ footer {
 }
 
 /* field studies */
+@-webkit-keyframes drawLine {
+    from {
+        stroke-dashoffset: 1;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
 @keyframes drawLine {
     from {
         stroke-dashoffset: 1;
@@ -308,7 +347,7 @@ footer {
 }
 
 .sgorbio path {
-    stroke: #000;
+    stroke: var(--txt-color);
     stroke-width: 1px;
     stroke-miterlimit: 10;
     stroke-dasharray: 1;
@@ -316,16 +355,19 @@ footer {
 }
 
 .sgorbio-1 {
+    -webkit-animation: drawLine 6s ease-in-out alternate forwards infinite;
     animation: drawLine 6s ease-in-out alternate forwards infinite;
 }
 
 .sgorbio-2 {
+    -webkit-animation: drawLine 5s 1s ease-in-out alternate forwards infinite;
     animation: drawLine 5s 1s ease-in-out alternate forwards infinite;
 }
 
 /* least */
 .least-cover img {
     width: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -333,15 +375,18 @@ footer {
 .mcbd-cover {
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--bg-color);
 }
 
 .mcbd-cover img {
     width: 90%;
+    -o-object-fit: cover;
     object-fit: cover;
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     display: none;
 }
@@ -356,6 +401,8 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     display: -webkit-box;
     display: -ms-flexbox;
@@ -363,6 +410,8 @@ footer {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 2rem;
     z-index: 9;
@@ -382,8 +431,8 @@ footer {
 .text-container {
     padding: var(--general-margin);
     height: var(--doc-height);
-    background-color: #000;
-    color: #fff;
+    background-color: var(--txt-color);
+    color: var(--bg-color);
 }
 
 .text-container p {
@@ -397,7 +446,7 @@ footer {
 
 @media screen and (max-width: 1000px) {
     .bio {
-        background-color: #fff;
+        background-color: var(--bg-color);
     }
 }
 
@@ -411,6 +460,10 @@ footer {
     }
 
     .noise {
+        background:
+            -o-linear-gradient(290deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0)),
+            -o-linear-gradient(10deg, rgba(240, 240, 240, 1), rgba(0, 255, 255, 0)),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='9.2' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         background:
             linear-gradient(160deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0)),
             linear-gradient(80deg, rgba(240, 240, 240, 1), rgba(0, 255, 255, 0)),
@@ -426,6 +479,10 @@ footer {
         position: absolute;
         top: 0;
         left: 0;
+        background:
+            -o-linear-gradient(85deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0)),
+            -o-linear-gradient(190deg, rgba(240, 240, 240, 1), rgba(0, 255, 255, 0)),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='9.2' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         background:
             linear-gradient(5deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0)),
             linear-gradient(260deg, rgba(240, 240, 240, 1), rgba(0, 255, 255, 0)),
@@ -446,6 +503,9 @@ footer {
     }
 
     .project-header {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         gap: 0;
     }
@@ -466,12 +526,14 @@ footer {
 
     .bio-wrapper {
         opacity: 1;
+        -webkit-transition: opacity .3s ease-in-out;
+        -o-transition: opacity .3s ease-in-out;
         transition: opacity .3s ease-in-out;
     }
 
     .bio-wrapper p,
     .bio-wrapper a {
-        color: #fff;
+        color: var(--bg-color);
     }
 
     .bio {
@@ -480,6 +542,8 @@ footer {
         bottom: 0;
         right: 0;
         background-color: var(--acc-color);
+        -webkit-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
         transition: all .3s ease-in-out;
     }
 
