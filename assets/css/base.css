@@ -165,7 +165,7 @@ input {
 
 *:visited,
 *:focus {
-    color: inherit;
+    color: var(--acc-color);
 }
 
 *::-moz-selection {
