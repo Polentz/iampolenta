@@ -199,6 +199,9 @@ canvas {
     bottom: var(--general-margin);
     right: var(--general-margin);
     border: solid 1px var(--acc-color);
+}
+
+.bio p {
     font-size: .9rem;
 }
 
@@ -442,6 +445,44 @@ footer {
     line-height: 1.1;
     margin-bottom: 70px;
     text-transform: none;
+}
+
+@media screen and (min-width: 1600px) {
+    body {
+        padding: 6rem;
+    }
+
+    a {
+        font-size: 1rem;
+    }
+
+    .header {
+        top: 6rem;
+        right: 6rem;
+    }
+
+    .header,
+    .projects-list h2 {
+        font-size: 2rem;
+    }
+
+    .project-specs p,
+    .project-link p,
+    .project-overview p,
+    .impressum,
+    .copy h2 {
+        font-size: 1rem;
+    }
+
+    .bio {
+        bottom: 6rem;
+        right: 6rem;
+    }
+
+    .bio p,
+    .copy p {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 1000px) {
