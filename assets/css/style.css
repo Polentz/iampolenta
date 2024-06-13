@@ -157,7 +157,7 @@ canvas {
     margin-right: 2px;
     font-weight: 600;
     color: var(--acc-color);
-    cursor: crosshair;
+    cursor: help;
 }
 
 .project-link p {
@@ -207,6 +207,11 @@ canvas {
 
 .bio p:not(:last-of-type) {
     margin-bottom: 1rem;
+}
+
+.bio-wrapper a::selection {
+    background-color: var(--acc-color);
+    color: var(--bg-color);
 }
 
 footer {
@@ -369,7 +374,8 @@ footer {
 
 /* least */
 .least-cover img {
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
 }
@@ -378,7 +384,7 @@ footer {
 .mcbd-cover {
     width: 100%;
     height: 100%;
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
 }
 
 .mcbd-cover img {

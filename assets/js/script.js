@@ -13,9 +13,19 @@ const handleHover = () => {
         if (projectHover) {
             projectHover.addEventListener("mouseenter", () => {
                 projectCover.classList.add("reveal");
+                if (projectCover.id === "wor") {
+                    document.body.style.background = "linear-gradient(0deg, #ffffff 0%, #ffc9c9 100%)"
+                    document.querySelector("canvas").style.display = "none";
+                    document.querySelector(".bio").style.display = "none";
+                }
             });
             projectHover.addEventListener("mouseleave", () => {
                 projectCover.classList.remove("reveal");
+                if (projectCover.id === "wor") {
+                    document.body.style.background = "transparent";
+                    document.querySelector("canvas").style.display = "block";
+                    document.querySelector(".bio").style.display = "block";
+                }
             });
         };
     });
@@ -35,7 +45,7 @@ const typewriter = (target, text, speed) => {
         }
         pointer++;
     }, speed);
-}
+};
 
 typewriter("text-a", typewriterText, 75);
 
