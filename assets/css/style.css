@@ -131,7 +131,12 @@ canvas {
     text-transform: uppercase;
 }
 
-.project-specs p,
+.project-specs p {
+    font-weight: 400;
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
 .project-link p,
 .project-overview p,
 .impressum {
